@@ -41,11 +41,12 @@ export HOME="$ADDON_PROFILE_PATH/moonlight-home"
 if [ -d "$MOONLIGHT_PATH/lib" ]; then
   LIB_PATH="$MOONLIGHT_PATH/lib"
   echo "Using custom libraries from $LIB_PATH..."
-
-  # Remove any pre-existing bundled libva libraries to force using host libva
-  rm -f "$LIB_PATH"/libva*.so*
-
   export LD_LIBRARY_PATH=$LIB_PATH:/usr/lib/:$LD_LIBRARY_PATH
+
+  if [ -d "$LIB_PATH/dri" ]; then
+    echo "Using bundled VA-API drivers from $LIB_PATH/dri..."
+    export LIBVA_DRIVERS_PATH="$LIB_PATH/dri:$LIB_PATH/dri/intel-vaapi-driver:$LIBVA_DRIVERS_PATH"
+  fi
 
   if [ -d "$LIB_PATH/qt6" ]; then
     # Setup Qt6 library locations if present

@@ -66,6 +66,7 @@ USR_DEPENDENCIES="
   libgssapi_krb5.so*
   libgudev-1.0.so*
   libhwy.so*
+  libigdgmm.so*
   libicudata.so*
   libicui18n.so*
   libicuuc.so*
@@ -108,6 +109,10 @@ USR_DEPENDENCIES="
   libtheoraenc.so*
   libts.so*
   libtwolame.so*
+  libva-drm.so*
+  libva-wayland.so*
+  libva-x11.so*
+  libva.so*
   libvdpau.so*
   libvorbis.so*
   libvorbisenc.so*
@@ -138,6 +143,8 @@ USR_DEPENDENCIES="
   libxvidcore.so*
   libzstd.so*
   libzvbi.so*
+  dri/*
+  dri
   vdpau/*
   qt5
   qt6
@@ -161,8 +168,5 @@ done
 for DEP in $LIB_DEPENDENCIES; do
   cp --verbose --no-dereference --recursive /lib/*/$DEP /tmp/moonlight-qt/lib/ || echo "Skipping $DEP..."
 done
-
-# Remove bundled libva libraries so Moonlight uses system host libva libraries
-rm -rf /tmp/moonlight-qt/lib/libva*.so*
 
 chown -R --reference=/tmp/moonlight-qt /tmp/moonlight-qt/

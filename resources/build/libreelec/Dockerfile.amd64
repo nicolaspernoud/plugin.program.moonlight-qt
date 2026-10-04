@@ -17,8 +17,14 @@ RUN apt-get update \
     libqt5qml5 \
     libqt5quickcontrols2-5 \
     libqt5svg5 \
+    intel-media-va-driver \
+    i965-va-driver-shaders \
+    libigdgmm12 \
     libsm6 \
+    libva-drm2 \
     libva-wayland2 \
+    libva-x11-2 \
+    libva2 \
     libvdpau-va-gl1 \
     libvdpau1 \
     libxcb-cursor0 \

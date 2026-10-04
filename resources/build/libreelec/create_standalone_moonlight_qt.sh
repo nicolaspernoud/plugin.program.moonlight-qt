@@ -162,4 +162,7 @@ for DEP in $LIB_DEPENDENCIES; do
   cp --verbose --no-dereference --recursive /lib/*/$DEP /tmp/moonlight-qt/lib/ || echo "Skipping $DEP..."
 done
 
+# Remove bundled libva libraries so Moonlight uses system host libva libraries
+rm -rf /tmp/moonlight-qt/lib/libva*.so*
+
 chown -R --reference=/tmp/moonlight-qt /tmp/moonlight-qt/

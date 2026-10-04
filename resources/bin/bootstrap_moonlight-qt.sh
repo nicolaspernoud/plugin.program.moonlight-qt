@@ -41,7 +41,11 @@ export HOME="$ADDON_PROFILE_PATH/moonlight-home"
 if [ -d "$MOONLIGHT_PATH/lib" ]; then
   LIB_PATH="$MOONLIGHT_PATH/lib"
   echo "Using custom libraries from $LIB_PATH..."
-  export LD_LIBRARY_PATH=/usr/lib/:/usr/lib/x86_64-linux-gnu/:$LIB_PATH:$LD_LIBRARY_PATH
+
+  # Remove any pre-existing bundled libva libraries to force using host libva
+  rm -f "$LIB_PATH"/libva*.so*
+
+  export LD_LIBRARY_PATH=$LIB_PATH:/usr/lib/:$LD_LIBRARY_PATH
 
   if [ -d "$LIB_PATH/qt6" ]; then
     # Setup Qt6 library locations if present

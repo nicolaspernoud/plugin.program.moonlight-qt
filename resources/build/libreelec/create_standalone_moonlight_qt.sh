@@ -56,8 +56,14 @@ USR_DEPENDENCIES="
   libdatrie.so*
   libdav1d.so*
   libdouble-conversion.so*
+  libdrm.so*
+  libdrm_intel.so*
+  libevdev.so*
   libffi.so*
+  libfontconfig.so*
+  libfreetype.so*
   libfribidi.so*
+  libgbm.so*
   libgdk_pixbuf-2.0.so*
   libgomp.so*
   libgpg-error.so*
@@ -109,6 +115,7 @@ USR_DEPENDENCIES="
   libtheoraenc.so*
   libts.so*
   libtwolame.so*
+  libudev.so*
   libva-drm.so*
   libva-wayland.so*
   libva-x11.so*
@@ -117,6 +124,7 @@ USR_DEPENDENCIES="
   libvorbis.so*
   libvorbisenc.so*
   libvpx.so*
+  libwacom.so*
   libwayland-client.so*
   libwebp.so*
   libwebpmux.so*

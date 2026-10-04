@@ -3,21 +3,34 @@ ARG DEBIAN_RELEASE=bookworm
 FROM debian:${DEBIAN_RELEASE}-slim
 
 # Install required packages and download Moonligh-qt AppImage version
-RUN apt-get update \
+RUN sed -i 's/main/main non-free non-free-firmware/g' /etc/apt/sources.list.d/debian.sources 2>/dev/null || sed -i 's/main/main non-free non-free-firmware/g' /etc/apt/sources.list \
+ && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     libatomic1 \
+    libdrm-intel1 \
+    libdrm2 \
+    libegl1 \
+    libevdev2 \
+    libfontconfig1 \
+    libfreetype6 \
     libfuse2 \
+    libgbm1 \
     libgl1 \
     libgl1-mesa-dri \
+    libglvnd0 \
+    libglx0 \
+    libopengl0 \
     libgudev-1.0-0 \
     libinput10 \
+    libudev1 \
+    libwacom2 \
     libqt5core5a \
     libqt5gui5 \
     libqt5network5 \
     libqt5qml5 \
     libqt5quickcontrols2-5 \
     libqt5svg5 \
-    intel-media-va-driver \
+    intel-media-va-driver-non-free \
     i965-va-driver-shaders \
     libigdgmm12 \
     libsm6 \

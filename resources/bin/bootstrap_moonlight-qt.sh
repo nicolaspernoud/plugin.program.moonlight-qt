@@ -54,11 +54,13 @@ if [ -d "$MOONLIGHT_PATH/lib" ]; then
     export QML_IMPORT_PATH=$LIB_PATH/qt6/qml/
     export QML2_IMPORT_PATH=$LIB_PATH/qt6/qml/
     export QT_PLUGIN_PATH=$LIB_PATH/qt6/plugins/
+    export QT_QPA_PLATFORM_PLUGIN_PATH=$LIB_PATH/qt6/plugins/
   elif [ -d "$LIB_PATH/qt5" ]; then
     # Setup Qt5 library locations if present
     echo "Using Qt library from $LIB_PATH/qt5..."
     export QML_IMPORT_PATH=$LIB_PATH/qt5/qml/
     export QML2_IMPORT_PATH=$LIB_PATH/qt5/qml/
+    export QT_PLUGIN_PATH=$LIB_PATH/qt5/plugins/
     export QT_QPA_PLATFORM_PLUGIN_PATH=$LIB_PATH/qt5/plugins/
   fi
 fi

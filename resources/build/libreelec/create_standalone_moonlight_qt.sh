@@ -12,8 +12,13 @@ mkdir -p /tmp/moonlight-qt/bin/ /tmp/moonlight-qt/lib/
 if [ -f "./Moonlight-downloaded.AppImage" ]; then
   ./Moonlight-downloaded.AppImage --appimage-extract usr/bin/moonlight
   ./Moonlight-downloaded.AppImage --appimage-extract usr/lib
+  ./Moonlight-downloaded.AppImage --appimage-extract usr/plugins
   cp --verbose --no-dereference --recursive squashfs-root/usr/bin/moonlight /tmp/moonlight-qt/bin/moonlight-qt
   cp --verbose --no-dereference --recursive squashfs-root/usr/lib/* /tmp/moonlight-qt/lib/
+  if [ -d "squashfs-root/usr/plugins" ]; then
+    mkdir -p /tmp/moonlight-qt/lib/qt5/plugins/
+    cp --verbose --no-dereference --recursive squashfs-root/usr/plugins/* /tmp/moonlight-qt/lib/qt5/plugins/
+  fi
 else
   # Otherwise use APT installed binary
   cp -v /usr/bin/moonlight-qt /tmp/moonlight-qt/bin/
@@ -144,6 +149,7 @@ USR_DEPENDENCIES="
   vdpau/*
   qt5
   qt6
+  plugins
 "
 
 LIB_DEPENDENCIES="

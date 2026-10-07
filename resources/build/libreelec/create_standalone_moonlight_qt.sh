@@ -108,10 +108,6 @@ USR_DEPENDENCIES="
   libtheoraenc.so*
   libts.so*
   libtwolame.so*
-  libva-drm.so*
-  libva-wayland.so*
-  libva-x11.so*
-  libva.so*
   libvdpau.so*
   libvorbis.so*
   libvorbisenc.so*

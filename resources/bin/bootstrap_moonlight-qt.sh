@@ -40,8 +40,8 @@ export HOME="$ADDON_PROFILE_PATH/moonlight-home"
 # ls -al /proc/{$MOONLIGHT-PID}/map_files/ | tr -s ' ' | grep '>' | cut -d '>' -f 2 | sort | uniq
 if [ -d "$MOONLIGHT_PATH/lib" ]; then
   LIB_PATH="$MOONLIGHT_PATH/lib"
-  # Remove libva libraries from custom lib folder if present from older versions to use system libva (/usr/lib/libva.so.2.2200.0)
-  rm -f "$LIB_PATH"/libva*.so* 2>/dev/null || true
+  # Remove base libva library from custom lib folder if present from older versions to use system libva (/usr/lib/libva.so.2.2200.0)
+  rm -f "$LIB_PATH"/libva.so* 2>/dev/null || true
   echo "Using custom libraries from $LIB_PATH..."
   export LD_LIBRARY_PATH=/usr/lib/:$LIB_PATH:$LD_LIBRARY_PATH
 
